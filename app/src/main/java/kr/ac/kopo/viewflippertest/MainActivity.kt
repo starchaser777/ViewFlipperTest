@@ -19,15 +19,23 @@ class MainActivity : AppCompatActivity() {
         btnPrev = findViewById<Button>(R.id.btnPrev)
         vFlip = findViewById<ViewFlipper>(R.id.flipper)
 
-        btnNext.setOnClickListener(btnListener)
-        btnNext.setOnClickListener(btnListener)
-
-    }
-
-    val btnListener = View.OnClickListener {
-        when(it.id) {
-            R.id.btnNext -> vFlip.showNext()
-            R.id.btnPrev -> vFlip.showPrevious()
+        btnPrev.setOnClickListener {
+            vFlip.startFlipping()
+            vFlip.setFlipInterval(1000)
         }
+
+        btnNext.setOnClickListener {
+            vFlip.stopFlipping()
+        }
+
+//        btnPrev.setOnClickListener(btnListener)
+//        btnNext.setOnClickListener(btnListener)
     }
+
+//    val btnListener = View.OnClickListener {
+//        when(it.id) {
+//            R.id.btnPrev -> vFlip.showPrevious()
+//            R.id.btnNext -> vFlip.showNext()
+//        }
+//    }
 }
